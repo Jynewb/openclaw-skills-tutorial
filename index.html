@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenClaw Skills 完全指南</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --color-bg-primary: #0d1117;
+            --color-bg-secondary: #161b22;
+            --color-bg-tertiary: #21262d;
+            --color-border-primary: #30363d;
+            --color-border-secondary: #484f58;
+            --color-text-primary: #c9d1d9;
+            --color-text-secondary: #8b949e;
+            --color-accent: #58a6ff;
+            --color-accent-hover: #79c0ff;
+            --color-success: #238636;
+            --color-warning: #9e6a03;
+            --color-danger: #da3633;
+            --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background-color: var(--color-bg-primary);
+            color: var(--color-text-primary);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            background: var(--color-bg-secondary);
+            border-bottom: 1px solid var(--color-border-primary);
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+            font-size: 1.2rem;
+            color: var(--color-text-primary);
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            font-size: 1.5rem;
+        }
+
+        nav a {
+            color: var(--color-text-secondary);
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: var(--color-accent);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--color-bg-secondary) 0%, var(--color-bg-primary) 100%);
+            padding: 80px 20px;
+            text-align: center;
+            border-bottom: 1px solid var(--color-border-primary);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--color-accent), var(--color-accent-hover));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--color-text-secondary);
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: var(--color-success);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--color-success);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.2s, transform 0.2s;
+        }
+
+        .cta-button:hover {
+            background: #2ea043;
+            transform: translateY(-2px);
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .section {
+            margin-bottom: 80px;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--color-border-primary);
+        }
+
+        .section-title span {
+            color: var(--color-accent);
+        }
+
+        /* What is Skill */
+        .what-is-skill {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .skill-card {
+            background: var(--color-bg-secondary);
+            border: 1px solid var(--color-border-primary);
+            border-radius: 12px;
+            padding: 30px;
+        }
+
+        .skill-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--color-accent);
+        }
+
+        .skill-list {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .skill-list li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+            color: var(--color-text-secondary);
+        }
+
+        .skill-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--color-success);
+            font-weight: bold;
+        }
+
+        /* Top Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .skill-item {
+            background: var(--color-bg-secondary);
+            border: 1px solid var(--color-border-primary);
+            border-radius: 12px;
+            padding: 25px;
+            transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+        }
+
+        .skill-item:hover {
+            border-color: var(--color-accent);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .skill-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .skill-emoji {
+            font-size: 2.5rem;
+        }
+
+        .skill-name {
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+
+        .skill-badge {
+            background: var(--color-accent);
+            color: var(--color-bg-primary);
+            padding: 2px 10px;
+            border-radius: 12px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+
+        .skill-description {
+            color: var(--color-text-secondary);
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .skill-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+
+        .feature-tag {
+            background: var(--color-bg-tertiary);
+            color: var(--color-text-secondary);
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+        }
+
+        .skill-command {
+            background: var(--color-bg-primary);
+            border: 1px solid var(--color-border-primary);
+            border-radius: 6px;
+            padding: 12px;
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+            font-size: 0.85rem;
+            color: var(--color-text-primary);
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+
+        .skill-command code {
+            color: var(--color-accent);
+        }
+
+        .skill-price {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .price-free {
+            background: rgba(35, 134, 54, 0.2);
+            color: #3fb950;
+        }
+
+        .price-paid {
+            background: rgba(158, 106, 3, 0.2);
+            color: #d29922;
+        }
+
+        /* How to Use */
+        .how-to-steps {
+            display: grid;
+            gap: 20px;
+        }
+
+        .step-card {
+            background: var(--color-bg-secondary);
+            border: 1px solid var(--color-border-primary);
+            border-radius: 12px;
+            padding: 25px;
+            display: flex;
+            gap: 20px;
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: var(--color-accent);
+            color: var(--color-bg-primary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .step-content h4 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--color-accent);
+        }
+
+        .step-content p {
+            color: var(--color-text-secondary);
+        }
+
+        .code-block {
+            background: var(--color-bg-primary);
+            border: 1px solid var(--color-border-primary);
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+            font-size: 0.85rem;
+            overflow-x: auto;
+        }
+
+        .code-block .comment {
+            color: var(--color-text-secondary);
+        }
+
+        .code-block .keyword {
+            color: var(--color-accent);
+        }
+
+        /* Use Cases */
+        .use-cases {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .use-case-card {
+            background: var(--color-bg-secondary);
+            border: 1px solid var(--color-border-primary);
+            border-radius: 12px;
+            padding: 25px;
+        }
+
+        .use-case-icon {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .use-case-card h4 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: var(--color-text-primary);
+        }
+
+        .use-case-card p {
+            color: var(--color-text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .recommended-skills {
+            margin-top: 15px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .recommended-skill {
+            background: var(--color-bg-tertiary);
+            color: var(--color-accent);
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--color-bg-secondary);
+            border-top: 1px solid var(--color-border-primary);
+            padding: 40px 20px;
+            text-align: center;
+            color: var(--color-text-secondary);
+        }
+
+        footer p {
+            margin-bottom: 10px;
+        }
+
+        footer a {
+            color: var(--color-accent);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .what-is-skill {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .step-card {
+                flex-direction: column;
+            }
+
+            .step-number {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+        }
+
+        /* Scroll animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .skill-item, .step-card, .use-case-card {
+            animation: fadeInUp 0.5s ease-out forwards;
+        }
+
+        .skill-item:nth-child(1) { animation-delay: 0.1s; }
+        .skill-item:nth-child(2) { animation-delay: 0.2s; }
+        .skill-item:nth-child(3) { animation-delay: 0.3s; }
+        .skill-item:nth-child(4) { animation-delay: 0.4s; }
+        .skill-item:nth-child(5) { animation-delay: 0.5s; }
+
+        .step-card:nth-child(1) { animation-delay: 0.1s; }
+        .step-card:nth-child(2) { animation-delay: 0.2s; }
+        .step-card:nth-child(3) { animation-delay: 0.3s; }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--color-bg-primary);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--color-border-secondary);
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--color-text-secondary);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <a href="#" class="logo">
+                <span class="logo-icon">🚀</span>
+                <span>OpenClaw Skills</span>
+            </a>
+            <nav>
+                <a href="#top-skills">推荐技能</a>
+                <a href="#how-to-use">使用指南</a>
+                <a href="#use-cases">使用场景</a>
+                <a href="https://github.com" target="_blank">GitHub</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-badge">🎉 完全免费</div>
+        <h1>让你的AI助理成为全能专家</h1>
+        <p>OpenClaw Skills让你的AI助理掌握专业能力。从AI生图到足球推送，从安全审计到自动部署，一站式提升你的工作效率。</p>
+        <a href="#top-skills" class="cta-button">立即开始探索 →</a>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- What is Skill -->
+        <section class="section" id="what-is-skill">
+            <h2 class="section-title">什么是 <span>Skill</span>？</h2>
+            <div class="what-is-skill">
+                <div class="skill-card">
+                    <h3>🎯 能力扩展包</h3>
+                    <p style="color: var(--color-text-secondary); margin-bottom: 20px;">
+                        Skill就像给AI助理安装"插件"，让它掌握特定领域的专业知识和工具。
+                    </p>
+                    <ul class="skill-list">
+                        <li>专业工作流 - 多步骤的复杂操作</li>
+                        <li>工具集成 - 连接外部API和服务</li>
+                        <li>领域知识 - 行业特定的规则和流程</li>
+                        <li>复用资源 - 脚本、模板、配置文件</li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <h3>📦 技能结构</h3>
+                    <div class="code-block">
+                        <div class="comment"># Skill目录结构</div>
+                        <div>skill-name/</div>
+                        <div style="padding-left: 20px;">
+                            ├── SKILL.md <span class="comment"># 核心说明（必填）</span><br>
+                            ├── scripts/ <span class="comment"># 可执行脚本（可选）</span><br>
+                            ├── references/ <span class="comment"># 参考文档（可选）</span><br>
+                            └── assets/ <span class="comment"># 资源文件（可选）</span>
+                        </div>
+                    </div>
+                    <p style="color: var(--color-text-secondary); margin-top: 15px;">
+                        <strong>SKILL.md</strong> - 告诉AI什么时候使用这个技能<br>
+                        <strong>scripts/</strong> - 需要精确执行的代码<br>
+                        <strong>references/</strong> - 详细的技术文档<br>
+                        <strong>assets/</strong> - 模板、图片、配置等
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Top Skills -->
+        <section class="section" id="top-skills">
+            <h2 class="section-title">最推荐的 <span>10个Skills</span></h2>
+            <p style="color: var(--color-text-secondary); margin-bottom: 20px;">
+                这些Skills经过精心挑选，能显著提升你的工作和生活效率。
+            </p>
+
+            <div class="skills-grid">
+                <!-- 1. AI Creator -->
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-emoji">🎨</span>
+                        <div>
+                            <div class="skill-name">AI Creator</div>
+                            <span class="skill-badge">TOP 1</span>
+                        </div>
+                    </div>
+                    <p class="skill-description">
+                        AI生图和生视频工具集。支持Stable Diffusion、DALL-E、Replicate等多种模型。
+                    </p>
+                    <div class="skill-features">
+                        <span class="feature-tag">免费生图</span>
+                        <span class="feature-tag">AI生视频</span>
+                        <span class="feature-tag">多模型支持</span>
+                    </div>
+                    <div class="skill-command">
+                        <code>node skills/ai-creator/scripts/free-image.mjs "一只可爱的橘猫"</code>
+                    </div>
+                    <span class="skill-price price-free">🆓 完全免费</span>
+                </div>
+
+                <!-- 2. Football -->
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-emoji">⚽</span>
+                        <div>
+                            <div class="skill-name">Football</div>
+                            <span class="skill-badge">热门</span>
+                        </div>
+                    </div>
+                    <p class="skill-description">
+                        足球赛事信息获取。支持英超、西甲等主要联赛的最新比赛结果和积分榜。
+                    </p>
+                    <div class="skill-features">
+                        <span class="feature-tag">英超西甲</span>
+                        <span class="feature-tag">比赛结果</span>
+                        <span class="feature-tag">积分榜</span>
+                    </div>
+                    <div class="skill-command">
+                        <code>node skills/football/scripts/football.mjs --league all --type all</code>
+                    </div>
+                    <span class="skill-price price-free">🆓 完全免费</span>
+                </div>
+
+                <!-- 3. Weather -->
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-emoji">🌤️</span>
+                        <div>
+                            <div class="skill-name">Weather</div>
+                        </div>
+                    </div>
+                    <p class="skill-description">
+                        获取当前天气和预报。使用wttr.in和Open-Meteo，无需API Key。
+                    </p>
+                    <div class="skill-features">
+                        <span class="feature-tag">实时天气</span>
+                        <span class="feature-tag">未来预报</span>
+                        <span class="feature-tag">无需API</span>
+                    </div>
+                    <div class="skill-command">
+                        <code>curl -s "wttr.in/Shanghai?format=3"</code>
+                    </div>
+                    <span class="skill-price price-free">🆓 完全免费</span>
+                </div>
+
+                <!-- 4. Healthcheck -->
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-emoji">🛡️</span>
+                        <div>
+                            <div class="skill-name">Healthcheck</div>
+                        </div>
+                    </div>
+                    <p class="skill-description">
+                        主机安全审计和加固。防火墙配置、SSH安全、更新检查。
+                    </p>
+                    <div class="skill-features">
+                        <span class="feature-tag">安全审计</span>
+                        <span class="feature-tag">防火墙</span>
+                        <span class="feature-tag">SSH安全</span>
+                    </div>
+                    <div class="skill-command">
+                        <code>openclaw security audit --deep</code>
+                    </div>
+                    <span class="skill-price price-free">🆓 完全免费</span>
+                </div>
+
+                <!-- 5. Frontend Design -->
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-emoji">💻</span>
+                        <div>
+                            <div class="skill-name">Frontend Design</div>
+                        </div>
+                    </div>
+                    <p class="skill-description">
+                        快速创建生产级前端页面。生成美观、响应式的网站和组件。
+                    </p>
+                    <div class="skill-features">
+                        <span class="feature-tag">快速建站</span>
+                        <span class="feature-tag">响应式</span>
+                        <span class="feature-tag">美观设计</span>
+                    </div>
+                    <div class="skill-command">
+                        <code>"帮我创建一个个人作品集网站"</code>
+                    </div>
+                    <span class="skill-price price-free">🆓 完全免费</span>
+                </div>
+
+                <!-- 6. Web Deploy GitHub -->
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-emoji">🌐</span>
+                        <div>
+                            <div class="skill-name">Web Deploy GitHub</div>
+                        </div>
+                    </div>
+                    <p class="skill-description">
+                        一键部署到GitHub Pages。自动创建仓库、配置GitHub Actions。
+                    </p>
+                    <div class="skill-features">
+                        <span class="feature-tag">自动部署</span>
+                        <span class="feature-tag">GitHub Pages</span>
+                        <span class="feature-tag">CI/CD</span>
+                    </div>
+                    <div class="skill-command">
+                        <code>"把这个网站部署到GitHub Pages"</code>
+                    </div>
+                    <span class="skill-price price-free">🆓 完全免费</span>
+                </div>
+
+                <!-- 7. Git Essentials -->
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-emoji">📝</span>
+                        <div>
+                            <div class="skill-name">Git Essentials</div>
+                        </div>
+                    </div>
+                    <p class="skill-description">
+                        Git版本控制和协作。分支管理、提交、推送的完整工作流。
+                    </p>
+                    <div class="skill-features">
+                        <span class="feature-tag">版本控制</span>
+                        <span class="feature-tag">分支管理</span>
+                        <span class="feature-tag">协作</span>
+                    </div>
+                    <div class="skill-command">
+                        <code>git add . && git commit -m "描述" && git push</code>
+                    </div>
+                    <span class="skill-price price-free">🆓 完全免费</span>
+                </div>
+
+                <!-- 8. GitHub -->
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-emoji">🐙</span>
+                        <div>
+                            <div class="skill-name">GitHub</div>
+                        </div>
+                    </div>
+                    <p class="skill-description">
+                        使用gh CLI与GitHub交互。管理Issues、Pull Requests、CI运行。
+                    </p>
+                    <div class="skill-features">
+                        <span class="feature-tag">Issues管理</span>
+                        <span class="feature-tag">PR管理</span>
+                        <span class="feature-tag">CI状态</span>
+                    </div>
+                    <div class="skill-command">
+                        <code>gh issue list --limit 10</code>
+                    </div>
+                    <span class="skill-price price-free">🆓 完全免费</span>
+                </div>
+
+                <!-- 9. Video Frames -->
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-emoji">🎬</span>
+                        <div>
+                            <div class="skill-name">Video Frames</div>
+                        </div>
+                    </div>
+                    <p class="skill-description">
+                        使用ffmpeg提取视频帧和片段。批量处理视频文件。
+                    </p>
+                    <div class="skill-features">
+                        <span class="feature-tag">提取帧</span>
+                        <span class="feature-tag">截取片段</span>
+                        <span class="feature-tag">批量处理</span>
+                    </div>
+                    <div class="skill-command">
+                        <code>ffmpeg -i video.mp4 -ss 00:00:05 -vframes 1 frame.jpg</code>
+                    </div>
+                    <span class="skill-price price-free">🆓 完全免费</span>
+                </div>
+
+                <!-- 10. Tavily Search -->
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-emoji">🔍</span>
+                        <div>
+                            <div class="skill-name">Tavily Search</div>
+                        </div>
+                    </div>
+                    <p class="skill-description">
+                        AI优化的网络搜索。返回简洁、相关的搜索结果。
+                    </p>
+                    <div class="skill-features">
+                        <span class="feature-tag">AI优化</span>
+                        <span class="feature-tag">快速搜索</span>
+                        <span class="feature-tag">结果摘要</span>
+                    </div>
+                    <div class="skill-command">
+                        <code>"搜索最新的AI新闻"</code>
+                    </div>
+                    <span class="skill-price price-paid">💰 需要API Key</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- How to Use -->
+        <section class="section" id="how-to-use">
+            <h2 class="section-title">如何使用 <span>Skills</span></h2>
+            <div class="how-to-steps">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h4>自动触发（推荐）</h4>
+                        <p>当你的需求匹配Skill的描述时，AI会自动加载该Skill！</p>
+                        <div class="code-block">
+                            <span class="comment"># 示例：你说"帮我生成一张猫咪图片"</span><br>
+                            AI自动触发 ai-creator skill → 执行命令生成图片
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h4>手动执行脚本</h4>
+                        <p>直接运行Skill中的脚本</p>
+                        <div class="code-block">
+                            <span class="comment"># 进入skill目录</span><br>
+                            cd ~/.openclaw/workspace/skills/&lt;skill-name&gt;<br><br>
+                            <span class="comment"># 执行脚本</span><br>
+                            node scripts/&lt;script-name&gt;.mjs "参数"
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h4>直接告诉AI</h4>
+                        <p>明确指定使用某个Skill</p>
+                        <div class="code-block">
+                            "使用 football skill 查询英超积分榜"<br>
+                            "用 ai-creator 生成一张风景图"<br>
+                            "用 weather 查询上海天气"
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Use Cases -->
+        <section class="section" id="use-cases">
+            <h2 class="section-title">使用场景 <span>&推荐</span></h2>
+            <p style="color: var(--color-text-secondary); margin-bottom: 20px;">
+                根据你的需求，找到最适合的Skills组合。
+            </p>
+
+            <div class="use-cases">
+                <div class="use-case-card">
+                    <div class="use-case-icon">🎨</div>
+                    <h4>创作者 / 设计师</h4>
+                    <p>快速生成设计素材、创建作品集网站</p>
+                    <div class="recommended-skills">
+                        <span class="recommended-skill">🎨 AI Creator</span>
+                        <span class="recommended-skill">💻 Frontend Design</span>
+                        <span class="recommended-skill">🌐 Web Deploy GitHub</span>
+                    </div>
+                </div>
+
+                <div class="use-case-card">
+                    <div class="use-case-icon">⚽</div>
+                    <h4>球迷 / 体育爱好者</h4>
+                    <p>自动接收比赛推送、查询赛事信息</p>
+                    <div class="recommended-skills">
+                        <span class="recommended-skill">⚽ Football</span>
+                        <span class="recommended-skill">🔍 Tavily Search</span>
+                    </div>
+                </div>
+
+                <div class="use-case-card">
+                    <div class="use-case-icon">💼</div>
+                    <h4>开发者</h4>
+                    <p>版本控制、项目管理、代码托管</p>
+                    <div class="recommended-skills">
+                        <span class="recommended-skill">📝 Git Essentials</span>
+                        <span class="recommended-skill">🐙 GitHub</span>
+                        <span class="recommended-skill">🛡️ Healthcheck</span>
+                    </div>
+                </div>
+
+                <div class="use-case-card">
+                    <div class="use-case-icon">🏠</div>
+                    <h4>家庭用户</h4>
+                    <p>天气查询、日常事务自动化</p>
+                    <div class="recommended-skills">
+                        <span class="recommended-skill">🌤️ Weather</span>
+                        <span class="recommended-skill">⚽ Football</span>
+                    </div>
+                </div>
+
+                <div class="use-case-card">
+                    <div class="use-case-icon">🎬</div>
+                    <h4>视频创作者</h4>
+                    <p>视频处理、帧提取、片段剪辑</p>
+                    <div class="recommended-skills">
+                        <span class="recommended-skill">🎬 Video Frames</span>
+                        <span class="recommended-skill">🎨 AI Creator</span>
+                    </div>
+                </div>
+
+                <div class="use-case-card">
+                    <div class="use-case-icon">🚀</div>
+                    <h4>所有用户</h4>
+                    <p>安全审计、系统维护</p>
+                    <div class="recommended-skills">
+                        <span class="recommended-skill">🛡️ Healthcheck</span>
+                        <span class="recommended-skill">🌤️ Weather</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>🚀 OpenClaw Skills 完全指南</p>
+        <p>Made with ❤️ by <a href="https://github.com" target="_blank">OpenClaw Community</a></p>
+        <p style="font-size: 0.85rem; color: var(--color-text-secondary);">
+            让AI助理成为你的全能专家
+        </p>
+    </footer>
+</body>
+</html>
