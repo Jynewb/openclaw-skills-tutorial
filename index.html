@@ -248,11 +248,6 @@
             color: white;
         }
 
-        .skill-badge-new {
-            background: #238636;
-            color: white;
-        }
-
         .skill-description {
             color: var(--color-text-secondary);
             margin-bottom: 15px;
@@ -284,10 +279,33 @@
             color: var(--color-text-primary);
             overflow-x: auto;
             white-space: nowrap;
+            margin-bottom: 8px;
         }
 
         .skill-command code {
             color: var(--color-accent);
+        }
+
+        .install-command {
+            background: rgba(35, 134, 54, 0.1);
+            border: 1px solid var(--color-success);
+            border-radius: 6px;
+            padding: 10px;
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+            font-size: 0.8rem;
+            color: #3fb950;
+            overflow-x: auto;
+            white-space: nowrap;
+            margin-bottom: 8px;
+        }
+
+        .install-label {
+            font-size: 0.7rem;
+            color: var(--color-text-secondary);
+            margin-bottom: 4px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
         }
 
         .skill-price {
@@ -567,51 +585,93 @@
             </p>
 
             <div class="skills-grid">
-                <!-- 1. AI Creator -->
+                <!-- 1. Tavily Search -->
                 <div class="skill-item">
                     <div class="skill-header">
-                        <span class="skill-emoji">🎨</span>
+                        <span class="skill-emoji">🔎</span>
                         <div>
-                            <div class="skill-name">AI Creator</div>
-                            <span class="skill-badge">TOP 1</span>
-                        </div>
-                    </div>
-                    <p class="skill-description">AI生图和生视频工具集。支持Stable Diffusion、DALL-E、Replicate等多种模型。</p>
-                    <div class="skill-features">
-                        <span class="feature-tag">免费生图</span>
-                        <span class="feature-tag">AI生视频</span>
-                        <span class="feature-tag">多模型支持</span>
-                    </div>
-                    <div class="skill-command"><code>node scripts/free-image.mjs "一只可爱的橘猫"</code></div>
-                    <span class="skill-price price-free">🆓 完全免费</span>
-                </div>
-
-                <!-- 2. AI Short Video -->
-                <div class="skill-item">
-                    <div class="skill-header">
-                        <span class="skill-emoji">🎬</span>
-                        <div>
-                            <div class="skill-name">AI Short Video</div>
+                            <div class="skill-name">Tavily Search</div>
                             <span class="skill-badge skill-badge-hot">热门</span>
                         </div>
                     </div>
-                    <p class="skill-description">AI自媒体短视频口播稿创作专家。专为抖音AI科普账号设计，接地气、细致有趣、案例丰富。</p>
+                    <p class="skill-description">AI优化的网络搜索。返回简洁、相关的搜索结果，专为AI Agent设计。</p>
                     <div class="skill-features">
-                        <span class="feature-tag">抖音口播稿</span>
-                        <span class="feature-tag">AI教程</span>
-                        <span class="feature-tag">实操指南</span>
+                        <span class="feature-tag">AI优化</span>
+                        <span class="feature-tag">快速搜索</span>
+                        <span class="feature-tag">结果摘要</span>
                     </div>
-                    <div class="skill-command"><code>"帮我用ai-short-video skill写一个关于XX的口播稿"</code></div>
+                    <div class="install-label">📦 一键安装:</div>
+                    <div class="install-command">openclaw skill install tavily-search</div>
+                    <div class="skill-command">用法: <code>"搜索最新的AI新闻"</code></div>
+                    <span class="skill-price price-paid">💰 需要API Key</span>
+                </div>
+
+                <!-- 2. Skill Creator -->
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-emoji">🔧</span>
+                        <div>
+                            <div class="skill-name">Skill Creator</div>
+                            <span class="skill-badge skill-badge-hot">热门</span>
+                        </div>
+                    </div>
+                    <p class="skill-description">创建和更新AgentSkills。设计、结构化、打包技能包，快速开发自己的AI技能。</p>
+                    <div class="skill-features">
+                        <span class="feature-tag">创建技能</span>
+                        <span class="feature-tag">打包发布</span>
+                        <span class="feature-tag">技能模板</span>
+                    </div>
+                    <div class="install-label">📦 一键安装:</div>
+                    <div class="install-command">openclaw skill install skill-creator</div>
+                    <div class="skill-command">用法: <code>"帮我创建一个新技能"</code></div>
                     <span class="skill-price price-free">🆓 完全免费</span>
                 </div>
 
-                <!-- 3. Football -->
+                <!-- 3. Browse -->
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-emoji">🔍</span>
+                        <div>
+                            <div class="skill-name">Browse</div>
+                            <span class="skill-badge skill-badge-hot">热门</span>
+                        </div>
+                    </div>
+                    <p class="skill-description">浏览器自动化。使用stagehand CLI创建和部署自动化脚本，支持表单填写、数据抓取。</p>
+                    <div class="skill-features">
+                        <span class="feature-tag">浏览器自动化</span>
+                        <span class="feature-tag">表单填写</span>
+                        <span class="feature-tag">数据抓取</span>
+                    </div>
+                    <div class="install-label">📦 一键安装:</div>
+                    <div class="install-command">openclaw skill install browse</div>
+                    <div class="skill-command">用法: <code>"帮我自动登录XXX网站"</code></div>
+                    <span class="skill-price price-free">🆓 完全免费</span>
+                </div>
+
+                <!-- 4. GitHub Hotspot -->
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-emoji">🔥</span>
+                        <div>
+                            <div class="skill-name">GitHub Hotspot</div>
+                        </div>
+                    </div>
+                    <p class="skill-description">GitHub AI热点追踪。每天抓取AI相关的热门讨论和Stars飙升项目，生成精美网页。</p>
+                    <div class="skill-features">
+                        <span class="feature-tag">AI热点</span>
+                        <span class="feature-tag">GitHub趋势</span>
+                        <span class="feature-tag">自动推送</span>
+                    </div>
+                    <div class="skill-command">用法: <code>"今天GitHub有什么AI热点"</code></div>
+                    <span class="skill-price price-free">🆓 完全免费</span>
+                </div>
+
+                <!-- 5. Football -->
                 <div class="skill-item">
                     <div class="skill-header">
                         <span class="skill-emoji">⚽</span>
                         <div>
                             <div class="skill-name">Football</div>
-                            <span class="skill-badge skill-badge-hot">热门</span>
                         </div>
                     </div>
                     <p class="skill-description">足球赛事信息获取。支持英超、西甲等主要联赛的最新比赛结果和积分榜。</p>
@@ -620,29 +680,11 @@
                         <span class="feature-tag">比赛结果</span>
                         <span class="feature-tag">积分榜</span>
                     </div>
-                    <div class="skill-command"><code>node scripts/football.mjs --league all --type all</code></div>
+                    <div class="skill-command">用法: <code>node scripts/football.mjs --league all --type all</code></div>
                     <span class="skill-price price-free">🆓 完全免费</span>
                 </div>
 
-                <!-- 4. Weather -->
-                <div class="skill-item">
-                    <div class="skill-header">
-                        <span class="skill-emoji">🌤️</span>
-                        <div>
-                            <div class="skill-name">Weather</div>
-                        </div>
-                    </div>
-                    <p class="skill-description">获取当前天气和预报。使用wttr.in和Open-Meteo，无需API Key。</p>
-                    <div class="skill-features">
-                        <span class="feature-tag">实时天气</span>
-                        <span class="feature-tag">未来预报</span>
-                        <span class="feature-tag">无需API</span>
-                    </div>
-                    <div class="skill-command"><code>curl -s "wttr.in/Shanghai?format=3"</code></div>
-                    <span class="skill-price price-free">🆓 完全免费</span>
-                </div>
-
-                <!-- 5. TechNews -->
+                <!-- 6. TechNews -->
                 <div class="skill-item">
                     <div class="skill-header">
                         <span class="skill-emoji">📰</span>
@@ -656,30 +698,67 @@
                         <span class="feature-tag">TechMeme</span>
                         <span class="feature-tag">自动总结</span>
                     </div>
-                    <div class="skill-command"><code>"今天有什么科技新闻"</code></div>
+                    <div class="skill-command">用法: <code>"今天有什么科技新闻"</code></div>
                     <span class="skill-price price-free">🆓 完全免费</span>
                 </div>
 
-                <!-- 6. GitHub Hotspot -->
+                <!-- 7. AI Video Generator -->
                 <div class="skill-item">
                     <div class="skill-header">
-                        <span class="skill-emoji">🔥</span>
+                        <span class="skill-emoji">📹</span>
                         <div>
-                            <div class="skill-name">GitHub Hotspot</div>
-                            <span class="skill-badge skill-badge-new">新</span>
+                            <div class="skill-name">AI Video Generator</div>
                         </div>
                     </div>
-                    <p class="skill-description">GitHub AI热点追踪。每天抓取AI相关的热门讨论和Stars飙升项目，生成精美网页。</p>
+                    <p class="skill-description">AI视频生成工具。支持文生视频、图生视频等多种模式，基于Replicate。</p>
                     <div class="skill-features">
-                        <span class="feature-tag">AI热点</span>
-                        <span class="feature-tag">GitHub趋势</span>
-                        <span class="feature-tag">自动推送</span>
+                        <span class="feature-tag">文生视频</span>
+                        <span class="feature-tag">图生视频</span>
+                        <span class="feature-tag">Replicate</span>
                     </div>
-                    <div class="skill-command"><code>"今天GitHub有什么AI热点"</code></div>
+                    <div class="skill-command">用法: <code>"生成一段猫咪在草地上奔跑的视频"</code></div>
+                    <span class="skill-price price-paid">💰 需要API Key</span>
+                </div>
+
+                <!-- 8. AI Creator -->
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-emoji">🎨</span>
+                        <div>
+                            <div class="skill-name">AI Creator</div>
+                        </div>
+                    </div>
+                    <p class="skill-description">AI生图和生视频工具集。支持Stable Diffusion、DALL-E、Replicate等多种模型，包含免费生图功能。</p>
+                    <div class="skill-features">
+                        <span class="feature-tag">免费生图</span>
+                        <span class="feature-tag">AI生视频</span>
+                        <span class="feature-tag">多模型支持</span>
+                    </div>
+                    <div class="skill-command">用法: <code>node scripts/free-image.mjs "一只可爱的橘猫"</code></div>
                     <span class="skill-price price-free">🆓 完全免费</span>
                 </div>
 
-                <!-- 7. Healthcheck -->
+                <!-- 9. Weather -->
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-emoji">🌤️</span>
+                        <div>
+                            <div class="skill-name">Weather</div>
+                        </div>
+                    </div>
+                    <p class="skill-description">获取当前天气和预报。使用wttr.in和Open-Meteo，无需API Key。</p>
+                    <div class="skill-features">
+                        <span class="feature-tag">实时天气</span>
+                        <span class="feature-tag">未来预报</span>
+                        <span class="feature-tag">无需API</span>
+                    </div>
+                    <div class="install-label">📦 一键安装:</div>
+                    <div class="install-command">openclaw skill install weather</div>
+                    <div class="skill-command">用法: <code>curl -s "wttr.in/Shanghai?format=3"</code></div>
+                    <span class="skill-price price-free">🆓 完全免费</span>
+                </div>
+
+                <!-- 10. Healthcheck -->
                 <div class="skill-item">
                     <div class="skill-header">
                         <span class="skill-emoji">🛡️</span>
@@ -693,101 +772,13 @@
                         <span class="feature-tag">防火墙</span>
                         <span class="feature-tag">SSH安全</span>
                     </div>
-                    <div class="skill-command"><code>openclaw security audit --deep</code></div>
+                    <div class="install-label">📦 一键安装:</div>
+                    <div class="install-command">openclaw skill install healthcheck</div>
+                    <div class="skill-command">用法: <code>openclaw security audit --deep</code></div>
                     <span class="skill-price price-free">🆓 完全免费</span>
                 </div>
 
-                <!-- 8. Frontend Design -->
-                <div class="skill-item">
-                    <div class="skill-header">
-                        <span class="skill-emoji">💻</span>
-                        <div>
-                            <div class="skill-name">Frontend Design</div>
-                        </div>
-                    </div>
-                    <p class="skill-description">快速创建生产级前端页面。生成美观、响应式的网站和组件。</p>
-                    <div class="skill-features">
-                        <span class="feature-tag">快速建站</span>
-                        <span class="feature-tag">响应式</span>
-                        <span class="feature-tag">美观设计</span>
-                    </div>
-                    <div class="skill-command"><code>"帮我创建一个个人作品集网站"</code></div>
-                    <span class="skill-price price-free">🆓 完全免费</span>
-                </div>
-
-                <!-- 9. Web Deploy GitHub -->
-                <div class="skill-item">
-                    <div class="skill-header">
-                        <span class="skill-emoji">🌐</span>
-                        <div>
-                            <div class="skill-name">Web Deploy GitHub</div>
-                        </div>
-                    </div>
-                    <p class="skill-description">一键部署到GitHub Pages。自动创建仓库、配置GitHub Actions。</p>
-                    <div class="skill-features">
-                        <span class="feature-tag">自动部署</span>
-                        <span class="feature-tag">GitHub Pages</span>
-                        <span class="feature-tag">CI/CD</span>
-                    </div>
-                    <div class="skill-command"><code>"把这个网站部署到GitHub Pages"</code></div>
-                    <span class="skill-price price-free">🆓 完全免费</span>
-                </div>
-
-                <!-- 10. Browse -->
-                <div class="skill-item">
-                    <div class="skill-header">
-                        <span class="skill-emoji">🔍</span>
-                        <div>
-                            <div class="skill-name">Browse</div>
-                        </div>
-                    </div>
-                    <p class="skill-description">浏览器自动化。使用stagehand CLI创建和部署自动化脚本。</p>
-                    <div class="skill-features">
-                        <span class="feature-tag">浏览器自动化</span>
-                        <span class="feature-tag">表单填写</span>
-                        <span class="feature-tag">数据抓取</span>
-                    </div>
-                    <div class="skill-command"><code>"帮我自动登录XXX网站"</code></div>
-                    <span class="skill-price price-free">🆓 完全免费</span>
-                </div>
-
-                <!-- 11. Git Essentials -->
-                <div class="skill-item">
-                    <div class="skill-header">
-                        <span class="skill-emoji">📝</span>
-                        <div>
-                            <div class="skill-name">Git Essentials</div>
-                        </div>
-                    </div>
-                    <p class="skill-description">Git版本控制和协作。分支管理、提交、推送的完整工作流。</p>
-                    <div class="skill-features">
-                        <span class="feature-tag">版本控制</span>
-                        <span class="feature-tag">分支管理</span>
-                        <span class="feature-tag">协作</span>
-                    </div>
-                    <div class="skill-command"><code>git add . && git commit -m "描述" && git push</code></div>
-                    <span class="skill-price price-free">🆓 完全免费</span>
-                </div>
-
-                <!-- 12. GitHub -->
-                <div class="skill-item">
-                    <div class="skill-header">
-                        <span class="skill-emoji">🐙</span>
-                        <div>
-                            <div class="skill-name">GitHub</div>
-                        </div>
-                    </div>
-                    <p class="skill-description">使用gh CLI与GitHub交互。管理Issues、Pull Requests、CI运行。</p>
-                    <div class="skill-features">
-                        <span class="feature-tag">Issues管理</span>
-                        <span class="feature-tag">PR管理</span>
-                        <span class="feature-tag">CI状态</span>
-                    </div>
-                    <div class="skill-command"><code>gh issue list --limit 10</code></div>
-                    <span class="skill-price price-free">🆓 完全免费</span>
-                </div>
-
-                <!-- 13. Video Frames -->
+                <!-- 11. Video Frames -->
                 <div class="skill-item">
                     <div class="skill-header">
                         <span class="skill-emoji">🎥</span>
@@ -801,17 +792,110 @@
                         <span class="feature-tag">截取片段</span>
                         <span class="feature-tag">批量处理</span>
                     </div>
-                    <div class="skill-command"><code>ffmpeg -i video.mp4 -ss 00:00:05 -vframes 1 frame.jpg</code></div>
+                    <div class="install-label">📦 一键安装:</div>
+                    <div class="install-command">openclaw skill install video-frames</div>
+                    <div class="skill-command">用法: <code>ffmpeg -i video.mp4 -ss 00:00:05 -vframes 1 frame.jpg</code></div>
                     <span class="skill-price price-free">🆓 完全免费</span>
                 </div>
 
-                <!-- 14. Jianying Editor -->
+                <!-- 12. Frontend Design -->
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-emoji">💻</span>
+                        <div>
+                            <div class="skill-name">Frontend Design</div>
+                        </div>
+                    </div>
+                    <p class="skill-description">快速创建生产级前端页面。生成美观、响应式的网站和组件。</p>
+                    <div class="skill-features">
+                        <span class="feature-tag">快速建站</span>
+                        <span class="feature-tag">响应式</span>
+                        <span class="feature-tag">美观设计</span>
+                    </div>
+                    <div class="skill-command">用法: <code>"帮我创建一个个人作品集网站"</code></div>
+                    <span class="skill-price price-free">🆓 完全免费</span>
+                </div>
+
+                <!-- 13. Web Deploy GitHub -->
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-emoji">🌐</span>
+                        <div>
+                            <div class="skill-name">Web Deploy GitHub</div>
+                        </div>
+                    </div>
+                    <p class="skill-description">一键部署到GitHub Pages。自动创建仓库、配置GitHub Actions。</p>
+                    <div class="skill-features">
+                        <span class="feature-tag">自动部署</span>
+                        <span class="feature-tag">GitHub Pages</span>
+                        <span class="feature-tag">CI/CD</span>
+                    </div>
+                    <div class="skill-command">用法: <code>"把这个网站部署到GitHub Pages"</code></div>
+                    <span class="skill-price price-free">🆓 完全免费</span>
+                </div>
+
+                <!-- 14. Git Essentials -->
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-emoji">📝</span>
+                        <div>
+                            <div class="skill-name">Git Essentials</div>
+                        </div>
+                    </div>
+                    <p class="skill-description">Git版本控制和协作。分支管理、提交、推送的完整工作流。</p>
+                    <div class="skill-features">
+                        <span class="feature-tag">版本控制</span>
+                        <span class="feature-tag">分支管理</span>
+                        <span class="feature-tag">协作</span>
+                    </div>
+                    <div class="skill-command">用法: <code>git add . && git commit -m "描述" && git push</code></div>
+                    <span class="skill-price price-free">🆓 完全免费</span>
+                </div>
+
+                <!-- 15. GitHub -->
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-emoji">🐙</span>
+                        <div>
+                            <div class="skill-name">GitHub</div>
+                        </div>
+                    </div>
+                    <p class="skill-description">使用gh CLI与GitHub交互。管理Issues、Pull Requests、CI运行。</p>
+                    <div class="skill-features">
+                        <span class="feature-tag">Issues管理</span>
+                        <span class="feature-tag">PR管理</span>
+                        <span class="feature-tag">CI状态</span>
+                    </div>
+                    <div class="install-label">📦 一键安装:</div>
+                    <div class="install-command">openclaw skill install github</div>
+                    <div class="skill-command">用法: <code>gh issue list --limit 10</code></div>
+                    <span class="skill-price price-free">🆓 完全免费</span>
+                </div>
+
+                <!-- 16. AI Short Video -->
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-emoji">🎬</span>
+                        <div>
+                            <div class="skill-name">AI Short Video</div>
+                        </div>
+                    </div>
+                    <p class="skill-description">AI自媒体短视频口播稿创作专家。专为抖音AI科普账号设计，接地气、细致有趣、案例丰富。</p>
+                    <div class="skill-features">
+                        <span class="feature-tag">抖音口播稿</span>
+                        <span class="feature-tag">AI教程</span>
+                        <span class="feature-tag">实操指南</span>
+                    </div>
+                    <div class="skill-command">用法: <code>"帮我用ai-short-video skill写一个关于XX的口播稿"</code></div>
+                    <span class="skill-price price-free">🆓 完全免费</span>
+                </div>
+
+                <!-- 17. Jianying Editor -->
                 <div class="skill-item">
                     <div class="skill-header">
                         <span class="skill-emoji">✂️</span>
                         <div>
                             <div class="skill-name">Jianying Editor</div>
-                            <span class="skill-badge skill-badge-new">新</span>
                         </div>
                     </div>
                     <p class="skill-description">剪映AI自动化剪辑API。支持录屏、素材导入、字幕生成、Web动效合成。</p>
@@ -820,17 +904,16 @@
                         <span class="feature-tag">字幕生成</span>
                         <span class="feature-tag">Python API</span>
                     </div>
-                    <div class="skill-command"><code>"用剪映帮我剪辑这个视频"</code></div>
+                    <div class="skill-command">用法: <code>"用剪映帮我剪辑这个视频"</code></div>
                     <span class="skill-price price-free">🆓 完全免费</span>
                 </div>
 
-                <!-- 15. Business Proposal Expert -->
+                <!-- 18. Business Proposal Expert -->
                 <div class="skill-item">
                     <div class="skill-header">
                         <span class="skill-emoji">💼</span>
                         <div>
                             <div class="skill-name">Business Proposal</div>
-                            <span class="skill-badge skill-badge-new">新</span>
                         </div>
                     </div>
                     <p class="skill-description">商业提案与品牌推广专家。制作专业商业提案、品牌营销方案、电商运营策略。</p>
@@ -839,47 +922,101 @@
                         <span class="feature-tag">品牌推广</span>
                         <span class="feature-tag">电商运营</span>
                     </div>
-                    <div class="skill-command"><code>"帮我写一份XX产品的商业提案"</code></div>
+                    <div class="skill-command">用法: <code>"帮我写一份XX产品的商业提案"</code></div>
                     <span class="skill-price price-free">🆓 完全免费</span>
                 </div>
 
-                <!-- 16. Skill Creator -->
+                <!-- 19. AI Copywriter -->
                 <div class="skill-item">
                     <div class="skill-header">
-                        <span class="skill-emoji">🔧</span>
+                        <span class="skill-emoji">✍️</span>
                         <div>
-                            <div class="skill-name">Skill Creator</div>
+                            <div class="skill-name">AI Copywriter</div>
                         </div>
                     </div>
-                    <p class="skill-description">创建和更新AgentSkills。设计、结构化、打包技能包。</p>
+                    <p class="skill-description">AI文案大师。一键生成营销文案、朋友圈文案、产品描述、短视频脚本、广告语。</p>
                     <div class="skill-features">
-                        <span class="feature-tag">创建技能</span>
-                        <span class="feature-tag">打包发布</span>
-                        <span class="feature-tag">技能模板</span>
+                        <span class="feature-tag">营销文案</span>
+                        <span class="feature-tag">短视频脚本</span>
+                        <span class="feature-tag">广告语</span>
                     </div>
-                    <div class="skill-command"><code>"帮我创建一个新技能"</code></div>
+                    <div class="skill-command">用法: <code>"帮我写一个朋友圈文案"</code></div>
                     <span class="skill-price price-free">🆓 完全免费</span>
                 </div>
 
-                <!-- 17. Tavily Search -->
+                <!-- 20. AI Meme -->
                 <div class="skill-item">
                     <div class="skill-header">
-                        <span class="skill-emoji">🔎</span>
+                        <span class="skill-emoji">😂</span>
                         <div>
-                            <div class="skill-name">Tavily Search</div>
+                            <div class="skill-name">AI Meme</div>
                         </div>
                     </div>
-                    <p class="skill-description">AI优化的网络搜索。返回简洁、相关的搜索结果。</p>
+                    <p class="skill-description">AI表情包生成器。一键生成有趣、有梗的表情包！支持文字表情包、场景表情包。</p>
                     <div class="skill-features">
-                        <span class="feature-tag">AI优化</span>
-                        <span class="feature-tag">快速搜索</span>
-                        <span class="feature-tag">结果摘要</span>
+                        <span class="feature-tag">表情包</span>
+                        <span class="feature-tag">有趣</span>
+                        <span class="feature-tag">社交必备</span>
                     </div>
-                    <div class="skill-command"><code>"搜索最新的AI新闻"</code></div>
-                    <span class="skill-price price-paid">💰 需要API Key</span>
+                    <div class="skill-command">用法: <code>"帮我生成一个有趣的表情包"</code></div>
+                    <span class="skill-price price-free">🆓 完全免费</span>
                 </div>
 
-                <!-- 18. Bat Cat -->
+                <!-- 21. Excel Formula -->
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-emoji">📊</span>
+                        <div>
+                            <div class="skill-name">Excel Formula</div>
+                        </div>
+                    </div>
+                    <p class="skill-description">Excel公式生成器。用自然语言描述需求，自动生成Excel公式！不用背公式。</p>
+                    <div class="skill-features">
+                        <span class="feature-tag">公式生成</span>
+                        <span class="feature-tag">自然语言</span>
+                        <span class="feature-tag">办公神器</span>
+                    </div>
+                    <div class="skill-command">用法: <code>"帮我写一个计算XX的Excel公式"</code></div>
+                    <span class="skill-price price-free">🆓 完全免费</span>
+                </div>
+
+                <!-- 22. Daily Report -->
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-emoji">📋</span>
+                        <div>
+                            <div class="skill-name">Daily Report</div>
+                        </div>
+                    </div>
+                    <p class="skill-description">一键生成专业工作日报/周报。输入今天做的事情，自动生成格式规范的工作报告。</p>
+                    <div class="skill-features">
+                        <span class="feature-tag">日报周报</span>
+                        <span class="feature-tag">格式规范</span>
+                        <span class="feature-tag">打工人必备</span>
+                    </div>
+                    <div class="skill-command">用法: <code>"帮我生成今天的工作日报"</code></div>
+                    <span class="skill-price price-free">🆓 完全免费</span>
+                </div>
+
+                <!-- 23. Meeting Minutes -->
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-emoji">📝</span>
+                        <div>
+                            <div class="skill-name">Meeting Minutes</div>
+                        </div>
+                    </div>
+                    <p class="skill-description">会议纪要助手。快速生成规范的会议纪要，结构清晰、内容完整。</p>
+                    <div class="skill-features">
+                        <span class="feature-tag">会议纪要</span>
+                        <span class="feature-tag">结构清晰</span>
+                        <span class="feature-tag">职场必备</span>
+                    </div>
+                    <div class="skill-command">用法: <code>"帮我生成会议纪要"</code></div>
+                    <span class="skill-price price-free">🆓 完全免费</span>
+                </div>
+
+                <!-- 24. Bat Cat -->
                 <div class="skill-item">
                     <div class="skill-header">
                         <span class="skill-emoji">🐱</span>
@@ -893,115 +1030,7 @@
                         <span class="feature-tag">行号显示</span>
                         <span class="feature-tag">Git集成</span>
                     </div>
-                    <div class="skill-command"><code>bat filename.py</code></div>
-                    <span class="skill-price price-free">🆓 完全免费</span>
-                </div>
-
-                <!-- 19. Browserbase Auth -->
-                <div class="skill-item">
-                    <div class="skill-header">
-                        <span class="skill-emoji">🔐</span>
-                        <div>
-                            <div class="skill-name">Browserbase Auth</div>
-                        </div>
-                    </div>
-                    <p class="skill-description">浏览器认证流程自动化。自动完成登录、验证等交互式认证。</p>
-                    <div class="skill-features">
-                        <span class="feature-tag">自动登录</span>
-                        <span class="feature-tag">验证码处理</span>
-                        <span class="feature-tag">会话管理</span>
-                    </div>
-                    <div class="skill-command"><code>"帮我自动登录XXX平台"</code></div>
-                    <span class="skill-price price-paid">💰 需要API Key</span>
-                </div>
-
-                <!-- 20. Browserbase Functions -->
-                <div class="skill-item">
-                    <div class="skill-header">
-                        <span class="skill-emoji">⚡</span>
-                        <div>
-                            <div class="skill-name">Browserbase Functions</div>
-                        </div>
-                    </div>
-                    <p class="skill-description">部署无服务器浏览器自动化。使用bb CLI一键部署。</p>
-                    <div class="skill-features">
-                        <span class="feature-tag">无服务器</span>
-                        <span class="feature-tag">一键部署</span>
-                        <span class="feature-tag">自动扩展</span>
-                    </div>
-                    <div class="skill-command"><code>bb deploy my-function</code></div>
-                    <span class="skill-price price-paid">💰 需要API Key</span>
-                </div>
-
-                <!-- 21. AI Video Generator -->
-                <div class="skill-item">
-                    <div class="skill-header">
-                        <span class="skill-emoji">📹</span>
-                        <div>
-                            <div class="skill-name">AI Video Generator</div>
-                        </div>
-                    </div>
-                    <p class="skill-description">AI视频生成工具。支持文生视频、图生视频等多种模式。</p>
-                    <div class="skill-features">
-                        <span class="feature-tag">文生视频</span>
-                        <span class="feature-tag">图生视频</span>
-                        <span class="feature-tag">Replicate</span>
-                    </div>
-                    <div class="skill-command"><code>"生成一段猫咪在草地上奔跑的视频"</code></div>
-                    <span class="skill-price price-paid">💰 需要API Key</span>
-                </div>
-
-                <!-- 22. Node Control -->
-                <div class="skill-item">
-                    <div class="skill-header">
-                        <span class="skill-emoji">📱</span>
-                        <div>
-                            <div class="skill-name">Node Control</div>
-                        </div>
-                    </div>
-                    <p class="skill-description">控制和监控配对的节点设备。摄像头、屏幕录制、位置服务。</p>
-                    <div class="skill-features">
-                        <span class="feature-tag">设备控制</span>
-                        <span class="feature-tag">摄像头</span>
-                        <span class="feature-tag">位置服务</span>
-                    </div>
-                    <div class="skill-command"><code>"帮我拍一张照片"</code></div>
-                    <span class="skill-price price-free">🆓 完全免费</span>
-                </div>
-
-                <!-- 23. Cron Scheduler -->
-                <div class="skill-item">
-                    <div class="skill-header">
-                        <span class="skill-emoji">⏰</span>
-                        <div>
-                            <div class="skill-name">Cron Scheduler</div>
-                        </div>
-                    </div>
-                    <p class="skill-description">定时任务管理。创建、更新、删除定时提醒和自动化任务。</p>
-                    <div class="skill-features">
-                        <span class="feature-tag">定时任务</span>
-                        <span class="feature-tag">提醒通知</span>
-                        <span class="feature-tag">自动化</span>
-                    </div>
-                    <div class="skill-command"><code>"每天下午4点提醒我看足球"</code></div>
-                    <span class="skill-price price-free">🆓 完全免费</span>
-                </div>
-
-                <!-- 24. Messaging -->
-                <div class="skill-item">
-                    <div class="skill-header">
-                        <span class="skill-emoji">💬</span>
-                        <div>
-                            <div class="skill-name">Messaging</div>
-                        </div>
-                    </div>
-                    <p class="skill-description">多平台消息发送。支持Telegram、WhatsApp、Discord、飞书等。</p>
-                    <div class="skill-features">
-                        <span class="feature-tag">多平台</span>
-                        <span class="feature-tag">自动发送</span>
-                        <span class="feature-tag">富文本</span>
-                    </div>
-                    <div class="skill-command"><code>"把这个消息发到飞书群"</code></div>
+                    <div class="skill-command">用法: <code>bat filename.py</code></div>
                     <span class="skill-price price-free">🆓 完全免费</span>
                 </div>
             </div>
@@ -1014,6 +1043,20 @@
                 <div class="step-card">
                     <div class="step-number">1</div>
                     <div class="step-content">
+                        <h4>安装Skill</h4>
+                        <p>找到想要的Skill，复制安装命令到终端运行</p>
+                        <div class="code-block">
+                            <span class="comment"># 官方技能一键安装</span><br>
+                            openclaw skill install &lt;skill-name&gt;<br><br>
+                            <span class="comment"># 示例</span><br>
+                            openclaw skill install tavily-search
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
                         <h4>自动触发（推荐）</h4>
                         <p>当你的需求匹配Skill的描述时，AI会自动加载该Skill！</p>
                         <div class="code-block">
@@ -1024,7 +1067,7 @@
                 </div>
 
                 <div class="step-card">
-                    <div class="step-number">2</div>
+                    <div class="step-number">3</div>
                     <div class="step-content">
                         <h4>手动执行脚本</h4>
                         <p>直接运行Skill中的脚本</p>
@@ -1038,7 +1081,7 @@
                 </div>
 
                 <div class="step-card">
-                    <div class="step-number">3</div>
+                    <div class="step-number">4</div>
                     <div class="step-content">
                         <h4>直接告诉AI</h4>
                         <p>明确指定使用某个Skill</p>
