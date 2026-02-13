@@ -57,15 +57,133 @@
         .logo {
             display: flex;
             align-items: center;
-            gap: 10px;
-            font-weight: 600;
-            font-size: 1.2rem;
+            gap: 12px;
+            font-weight: 800;
+            font-size: 1.8rem;
             color: var(--color-text-primary);
             text-decoration: none;
+            font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, #ffffff 0%, #c9d1d9 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            transition: all 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+            filter: drop-shadow(0 4px 12px rgba(88, 166, 255, 0.3));
         }
 
         .logo-icon {
-            font-size: 1.5rem;
+            font-size: 2.5rem;
+            filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.2));
+        }
+
+        .logo-slogan {
+            font-size: 0.75rem;
+            color: #8b949e !important;
+            font-weight: 400;
+            letter-spacing: 0.02em;
+            opacity: 0.8;
+            margin-left: 8px;
+            font-style: italic;
+            border-left: 1px solid var(--color-border-secondary);
+            padding-left: 12px;
+            -webkit-text-fill-color: #8b949e !important;
+            background: none !important;
+        }
+
+        /* Douyin Card */
+        .douyin-card {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+            border: 2px solid #ff0050;
+            border-radius: 20px;
+            padding: 6px 12px;
+            margin-left: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(255, 0, 80, 0.2);
+        }
+
+        .douyin-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(255, 0, 80, 0.4);
+            border-color: #00f2ea;
+        }
+
+        .douyin-icon {
+            font-size: 1.3rem;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .douyin-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .douyin-name {
+            font-size: 0.85rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #00f2ea 0%, #ff0050 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+        }
+
+        .douyin-label {
+            font-size: 0.65rem;
+            color: #ffffff;
+            opacity: 0.7;
+            line-height: 1;
+        }
+
+        .douyin-qrcode {
+            position: absolute;
+            top: calc(100% + 10px);
+            right: 0;
+            background: white;
+            border-radius: 12px;
+            padding: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .douyin-card:hover .douyin-qrcode {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .douyin-qrcode img {
+            display: block;
+            width: 120px;
+            height: 120px;
+            border-radius: 8px;
+        }
+
+        .qrcode-tip {
+            text-align: center;
+            margin-top: 8px;
+            font-size: 0.75rem;
+            color: #000;
+            font-weight: 600;
         }
 
         nav a {
@@ -519,12 +637,24 @@
             <a href="#" class="logo">
                 <span class="logo-icon">🚀</span>
                 <span>阿悦Skills</span>
+                <span class="logo-slogan">AI路漫漫，请期待我发回来的实时报道</span>
             </a>
             <nav>
                 <a href="#top-skills">推荐技能</a>
                 <a href="#how-to-use">使用指南</a>
                 <a href="#use-cases">使用场景</a>
                 <a href="https://github.com" target="_blank">GitHub</a>
+                <div class="douyin-card" onclick="window.open('https://v.douyin.com/ZvniDinnBT8/', '_blank')">
+                    <div class="douyin-icon">📱</div>
+                    <div class="douyin-info">
+                        <div class="douyin-name">阿悦很严格</div>
+                        <div class="douyin-label">抖音关注</div>
+                    </div>
+                    <div class="douyin-qrcode">
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https://v.douyin.com/ZvniDinnBT8/" alt="抖音二维码">
+                        <div class="qrcode-tip">扫码关注</div>
+                    </div>
+                </div>
             </nav>
         </div>
     </header>
